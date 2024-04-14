@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --amarillo: #decd47;
+    --verde-claro: #b3de68;
+    --verde-oliva: #a3de49;
+    --verde-rana: #83de66;
+}
+
+body {
+    justify-content: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#inicio {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--amarillo);
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 1px black solid;
+}
+
+#logo {
+    margin: 2%;
+}
+
+#logo a{
+    text-decoration: none;
+}
+
+#logo a img {
+    max-width: 75px;
+    height: auto;
+}
+
+nav {
+    border-bottom: 1px solid black;
+}
+
+nav ul {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin-block-start: 0;
+}
+
+nav ul li {
+    text-align: center;
+    width: 25vw;
+    border-right: solid black 1px;
+}
+
+nav ul li a{
+    text-decoration: none;
+}
+
+main {
+    align-self: center;
+    width: 95vw;
+    min-height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#principal {
+    width: 100%;
+    text-align: center;
+    min-height: 45vh;
+}
+
+#fotos {
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar {
+    text-align: center;
+    border: solid black 1px;
+    border-radius: 5%;
+}
+
+#sidebar ul {
+    list-style: none;
+}
+
+footer {
+    border-top: solid black 1px;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    min-height: 5vh;
+}
+
+#redes-sociales ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
+}
+
+#nosotros ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
+}

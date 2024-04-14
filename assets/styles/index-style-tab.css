@@ -1,0 +1,30 @@
+#fotos {
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#principal {
+    border: 1px solid black;
+    border-radius: 5%;
+}
+
+footer {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#redes-sociales {
+    width: 40%;
+}
+
+#nosotros {
+    width: 40%;
+}
+
+#redes-sociales ul{
+    justify-content: space-around;
+}
+
+#nosotros ul{
+    justify-content: space-around;
+}

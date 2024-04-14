@@ -1,0 +1,11 @@
+main{
+    flex-direction: row;
+}
+
+#principal {
+    width: 65%;
+}
+
+#sidebar {
+    width: 30%;
+}
