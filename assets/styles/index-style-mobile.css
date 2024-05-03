@@ -5,10 +5,9 @@
 }
 
 :root {
-    --amarillo: #decd47;
-    --verde-claro: #b3de68;
-    --verde-oliva: #a3de49;
-    --verde-rana: #83de66;
+    --primario: #f4ffb7;
+    --secundario: #e2f75c;
+    --on-hover: #c4c4c4;
 }
 
 body {
@@ -22,7 +21,7 @@ body {
 #inicio {
     display: flex;
     flex-direction: row;
-    background-color: var(--amarillo);
+    background-color: var(--primario);
     align-items: center;
     justify-content: space-evenly;
     border-bottom: 1px black solid;
@@ -39,6 +38,11 @@ body {
 #logo a img {
     max-width: 75px;
     height: auto;
+}
+
+#usuario {
+    display: flex;
+    flex-direction: column;
 }
 
 nav {
@@ -77,7 +81,7 @@ main {
     min-height: 45vh;
 }
 
-#fotos {
+.intro {
     display: flex;
     flex-direction: column;
 }
@@ -112,4 +116,9 @@ footer {
     flex-direction: row;
     list-style: none;
     justify-content: space-between;
+}
+
+.bibliografia {
+    display: flex;
+    flex-direction: column;
 }
