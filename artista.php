@@ -29,11 +29,17 @@
     </header>
     <main>
         <div id="principal">
-            <h2>Título</h2>
+            <h1><?php
+                if(isset($_GET["artista"])){
+                    echo $_GET["artista"];
+                }else{
+                    echo "Título";
+                }
+            ?></h1>
             <div class="intro">
                 <div class="bibliografia">
                     <img src="#" alt="País en cuestión">
-                    <h1>País</h1>
+                    <h2>País</h2>
                 </div>
             </div>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde tempora nostrum nobis reprehenderit deserunt pariatur nihil dolorum debitis expedita, tenetur placeat! Praesentium enim hic earum libero veritatis totam molestias voluptate!</p>
