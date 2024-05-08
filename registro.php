@@ -14,8 +14,10 @@
             <div id="logo"><a href="./index.php"><img src="assets/images/logo.png" alt="Logo"></a></div>
             <h1>Arte Latina</h1>
             <div id="usuario">
-                <img src="#" alt="Foto de usuario">
-                <h3>Iniciar sesión</h3>
+                <a href="login.php">
+                    <img src="#" alt="Foto de usuario">
+                    <h3>Iniciar sesión</h3>
+                </a>
             </div>
         </div>
         <nav>
@@ -30,27 +32,27 @@
     <main>
         <div id="principal">
             <h2>Registro</h2>
-            <form action="./intento-registro.php" method="post" id="registro">
+            <form action="./includes/registrohandler-inc.php" method="post" id="registro">
                 <label for="usrname">Nombre de usuario (obligatorio): </label>
-                <input type="text" id="usrname" name="usrname"><br>
+                <input type="text"name="usrname"><br>
                 <label for="mail">E-mail (obligatorio): </label>
-                <input type="email" name="mail" id="mail"><br>
+                <input type="email" name="mail"><br>
                 <label for="pwd">Contraseña (obligatorio): </label>
-                <input type="password" id="pwd" name="pwd"><br>
+                <input type="password" name="pwd"><br>
                 <label for="rptpwd">Repetir contraseña (obligatorio): </label>
-                <input type="password" id="rptpwd" name="pwd"><br>
-                <label for="fname">Nombre: </label>
-                <input type="text" id="fname" name="fname"><br>
+                <input type="password" name="rptpwd"><br>
+                <label for="fname">Nombre (obligatorio): </label>
+                <input type="text" name="fname"><br>
                 <label for="lname">Apellido(s): </label>
-                <input type="text" id="lname" name="lname"><br>
-                <label for="fecha_nac">Fecha de nacimiento(obligatorio): </label>
-                <input type="date"  id="fecha_nac" name="fecha_nac"><br>
+                <input type="text" name="lname"><br>
+                <label for="fecha_nac">Fecha de nacimiento: </label>
+                <input type="date" name="fecha_nac"><br>
                 <p>Para recuperar contraseña, usa la siguiente frase:</p>
                 <label for="passphrase">Frase: </label>
-                <input type="text" name="passphrase" id="passphrase"><br>
+                <input type="text" name="passphrase"><br>
                 <label for="pass-ans">Respuesta: </label>
-                <input type="password" name="pass-ans" id="pass-ans"><br>
-                <input type="submit" value="Enviar">
+                <input type="password" name="pass_ans"><br>
+                <input type="submit" value="Registrarse">
             </form>
         </div>
         <div id="sidebar">

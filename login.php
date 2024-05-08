@@ -11,38 +11,33 @@
 <body>
     <header>
         <div id="inicio">
-            <div id="logo"><a href="./index.php"><img src="assets/images/logo.png" alt="Logo"></a></div>
+            <div id="logo"><a href="#"><img src="assets/images/logo.png" alt="Logo"></a></div>
             <h1>Arte Latina</h1>
             <div id="usuario">
-                <a href="login.php">
-                    <img src="#" alt="Foto de usuario">
-                    <h3>Iniciar sesión</h3>
-                </a>
+                <img src="#" alt="Foto de usuario">
+                <h3>Iniciar sesión</h3>
             </div>
         </div>
         <nav>
             <ul id="barra-principal">
-                <li><a href="./index.php">Inicio</a></li>
+                <li><a href="#">Inicio</a></li>
                 <li><a href="#">Compra</a></li>
                 <li><a href="#">Artistas</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="./contacto.php">Contacto</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <div id="principal">
-            <h2>Sobre nosotros</h2>
-            <div class="intro">
-                <div class="bibliografia">
-                    <h3>Foto 1</h3>
-                    <h3>Tú</h3>
-                </div>
-                <div class="bibliografia">
-                    <h3>Foto 2</h3>
-                    <h3>Yo</h3>
-                </div>
-            </div>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde tempora nostrum nobis reprehenderit deserunt pariatur nihil dolorum debitis expedita, tenetur placeat! Praesentium enim hic earum libero veritatis totam molestias voluptate!</p>
+            <h2>Iniciar sesión</h2>
+            <form action="./includes/login-inc.php" method="post">
+                <label for="usrname">Nombre de usuario: </label>
+                <input type="text" name="usrname"><br>
+                <label for="pwd">Contraseña: </label>
+                <input type="password" name="pwd"><br>
+                <input type="submit" value="Iniciar sesión">
+            </form>
+            <p>También puedes <a href="registro.php">registrarte</a></p>
         </div>
         <div id="sidebar">
             <p>Te invitamos a conocer un poco del arte de algunas artistas latinoamericanas</p>

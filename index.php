@@ -14,8 +14,10 @@
             <div id="logo"><a href="#"><img src="assets/images/logo.png" alt="Logo"></a></div>
             <h1>Arte Latina</h1>
             <div id="usuario">
-                <img src="#" alt="Foto de usuario">
-                <h3>Iniciar sesión</h3>
+                <a href="login.php">
+                    <img src="#" alt="Foto de usuario">
+                    <h3>Iniciar sesión</h3>
+                </a>
             </div>
         </div>
         <nav>
