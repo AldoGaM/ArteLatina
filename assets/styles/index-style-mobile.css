@@ -69,6 +69,16 @@ nav ul li a{
     color: black;
 }
 
+.search-option {
+    padding: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+button[type="submit"] img{
+    height: 15px;
+}
+
 main {
     align-self: center;
     width: 95vw;

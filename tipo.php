@@ -59,6 +59,12 @@
                 <li><a href="./contacto.php">Contacto</a></li>
             </ul>
         </nav>
+        <div class="search-option">
+            <form action="search.php" method="get">
+                <input type="search" name="busqueda" placeholder="Buscar">
+                <button type="submit"><img src="assets/images/search-icon.png" alt="Buscar"></button>
+            </form>
+        </div>
     </header>
     <main>
         <div id="principal">
