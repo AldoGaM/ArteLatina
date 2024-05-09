@@ -1,3 +1,33 @@
+<?php
+    try{
+        require_once 'includes/dbh-inc.php';
+        $query = "SELECT * FROM pais";
+        if(!empty($_GET["pais"])){
+            $pais = $_GET["pais"];
+            $query = $query . " WHERE nombre_pais = ?;";
+            $stmt = $pdo->prepare($query);
+            $stmt->execute([$pais]);
+            $respuesta = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            $query_artistas_por_pais = "SELECT * FROM artista WHERE id_pais = ?;";
+            $stmt_artist = $pdo->prepare($query_artistas_por_pais);
+            $stmt_artist->execute([$respuesta["id_pais"]]);
+            $resultados_artist = $stmt_artist->fetchAll(PDO::FETCH_ASSOC);
+        }
+        
+        $query_paises = "SELECT * FROM pais;";
+        $stmt_pais = $pdo->prepare($query_paises);
+        $stmt_pais->execute();
+        $resultados = $stmt_pais->fetchAll(PDO::FETCH_ASSOC);
+
+        $stmt = null;
+        $stmt_pais = null;
+        $pdo = null;
+
+    }catch(PDOException $e){
+        die("Query failed: " . $e->getMessage());
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,19 +61,36 @@
     </header>
     <main>
         <div id="principal">
-            <h2>Título</h2>
-            <div class="intro">
-                <div class="bibliografia">
-                    <img src="#" alt="País en cuestión">
-                    <h1>País</h1>
-                </div>
-            </div>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde tempora nostrum nobis reprehenderit deserunt pariatur nihil dolorum debitis expedita, tenetur placeat! Praesentium enim hic earum libero veritatis totam molestias voluptate!</p>
+            <?php
+                if(!empty($_GET["pais"])){
+                    echo "<h2>Todos los artistas de " . $pais . "</h2>";
+                    foreach($resultados_artist as $elem){
+                        echo "<a href='artista.php?artista=" . $elem["nombre"] . "'>";
+                            echo "<div class='results'>";
+                                echo "<h2>Artista: " . htmlspecialchars($elem["nombre"]) . "</h2>";
+                                echo "<p>" . htmlspecialchars($elem["descripcion"]) . "</p>";
+                            echo "</div>";
+                        echo "</a>";
+                    }
+                }else{
+                    foreach($resultados as $elem){
+                        echo "<a href='pais.php?pais=" . $elem["nombre_pais"] . "'>";
+                            echo "<div class='results'>";
+                                echo "<h2>País: " . htmlspecialchars($elem["nombre_pais"]) . "</h2>";
+                            echo "</div>";
+                        echo "</a>";
+                    }
+                }
+            ?>
         </div>
         <div id="sidebar">
             <p>Lista de países:</p>
             <ul>
-                <li>Agregar lista de países con query</li>
+                <?php
+                    foreach($resultados as $elem){
+                        echo "<li><a href='pais.php?pais=".$elem["nombre_pais"]."'>".$elem["nombre_pais"]."</a></li>";
+                    }
+                ?>
             </ul>
         </div>
     </main>

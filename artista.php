@@ -28,6 +28,8 @@
         
         $pdo = null;
         $stmt = null;
+        $stmt_pais = null;
+        $stmt_arte = null;
 
     }catch(PDOException $e){
         die("Query failed: " . $e->getMessage());
@@ -69,6 +71,7 @@
         <div id="principal">
             <?php
                 if(empty($_GET["artista"])){
+                    echo "<h2>Lista de artistas:</h2>";
                     foreach($resultados as $elem){
                         echo "<a href='artista.php?artista=" . $elem["nombre"] . "'>";
                             echo "<div class='results'>";

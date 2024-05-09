@@ -1,3 +1,34 @@
+<?php
+    try{
+        require_once 'includes/dbh-inc.php';
+        $query = "SELECT * FROM tipo_arte";
+        if (!empty($_GET["tipo"])){
+            $tipo = $_GET["tipo"];
+            $query = $query . " WHERE tipo = ?;";
+            $stmt = $pdo->prepare($query);
+            $stmt->execute([$tipo]);
+            $respuesta = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            $query_artistas_por_tipo = "SELECT * FROM artista WHERE id_tipo_arte = ?;";
+            $stmt_tipo = $pdo->prepare($query_artistas_por_tipo);
+            $stmt_tipo->execute([$respuesta["id_tipo_arte"]]);
+            $resultados_artist = $stmt_tipo->fetchAll(PDO::FETCH_ASSOC);
+
+        }else{
+            $query = $query . ";";
+            $stmt = $pdo->prepare($query);
+            $stmt->execute();
+            $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        $pdo = null;
+        $stmt = null;
+        $stmt_tipo = null;
+
+    }catch(PDOException $e){
+        die("Query failed: " . $e->getMessage());
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,14 +62,27 @@
     </header>
     <main>
         <div id="principal">
-            <h2>Título</h2>
-            <div class="intro">
-                <div class="bibliografia">
-                    <img src="#" alt="Arte en cuestión">
-                    <h1>Tipo de arte</h1>
-                </div>
-            </div>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde tempora nostrum nobis reprehenderit deserunt pariatur nihil dolorum debitis expedita, tenetur placeat! Praesentium enim hic earum libero veritatis totam molestias voluptate!</p>
+            <?php
+                if(!empty($_GET["tipo"])){
+                    echo "<h2>Todos los artistas de " . $tipo . "</h2>";
+                    foreach($resultados_artist as $elem){
+                        echo "<a href='artista.php?artista=" . $elem["nombre"] . "'>";
+                            echo "<div class='results'>";
+                                echo "<h2>Artista: " . htmlspecialchars($elem["nombre"]) . "</h2>";
+                                echo "<p>" . htmlspecialchars($elem["descripcion"]) . "</p>";
+                            echo "</div>";
+                        echo "</a>";
+                    }
+                }else{
+                    foreach($resultados as $elem){
+                        echo "<a href='tipo.php?tipo=" . $elem["tipo"] . "'>";
+                            echo "<div class='results'>";
+                                echo "<h2>Rama de arte: " . htmlspecialchars($elem["tipo"]) . "</h2>";
+                            echo "</div>";
+                        echo "</a>";
+                    }
+                }
+            ?>
         </div>
         <div id="sidebar">
             <p>Las ramas del arte:</p>
