@@ -20,9 +20,9 @@
         </div>
         <nav>
             <ul id="barra-principal">
-                <li><a href="#">Inicio</a></li>
+                <li><a href="index.php">Inicio</a></li>
                 <li><a href="#">Compra</a></li>
-                <li><a href="#">Artistas</a></li>
+                <li><a href="artista.php">Artistas</a></li>
                 <li><a href="./contacto.php">Contacto</a></li>
             </ul>
         </nav>
@@ -42,15 +42,13 @@
         <div id="sidebar">
             <p>Te invitamos a conocer un poco del arte de algunas artistas latinoamericanas</p>
             <ul>
-                <li><a href="#">Arquitectura</a></li>
-                <li><a href="#">Cine</a></li>
-                <li><a href="#">Danza</a></li>
-                <li><a href="#">Escultura</a></li>
-                <li><a href="#">Literatura</a></li>
-                <li><a href="#">Muralismo</a></li>
-                <li><a href="#">Música</a></li>
-                <li><a href="#">Pintura</a></li>
-                <li><a href="#">Teatro</a></li>
+                <li><a href="tipo.php?tipo=arquitectura">Arquitectura</a></li>
+                <li><a href="tipo.php?tipo=cine">Cine</a></li>
+                <li><a href="tipo.php?tipo=danza">Danza</a></li>
+                <li><a href="tipo.php?tipo=escultura">Escultura</a></li>
+                <li><a href="tipo.php?tipo=literatura">Literatura</a></li>
+                <li><a href="tipo.php?tipo=musica">Música</a></li>
+                <li><a href="tipo.php?tipo=pintura">Pintura</a></li>
             </ul>
         </div>
     </main>

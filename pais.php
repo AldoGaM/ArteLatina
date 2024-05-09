@@ -24,7 +24,7 @@
             <ul id="barra-principal">
                 <li><a href="./index.php">Inicio</a></li>
                 <li><a href="#">Compra</a></li>
-                <li><a href="#">Artistas</a></li>
+                <li><a href="artista.php">Artistas</a></li>
                 <li><a href="./contacto.php">Contacto</a></li>
             </ul>
         </nav>
@@ -41,17 +41,9 @@
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde tempora nostrum nobis reprehenderit deserunt pariatur nihil dolorum debitis expedita, tenetur placeat! Praesentium enim hic earum libero veritatis totam molestias voluptate!</p>
         </div>
         <div id="sidebar">
-            <p>Otros países:</p>
+            <p>Lista de países:</p>
             <ul>
-                <li><a href="#">Argentina</a></li>
-                <li><a href="#">Brasil</a></li>
-                <li><a href="#">Chile</a></li>
-                <li><a href="#">Colombia</a></li>
-                <li><a href="#">Ecuador</a></li>
-                <li><a href="#">Guatemala</a></li>
-                <li><a href="#">México</a></li>
-                <li><a href="#">El Salvador</a></li>
-                <li><a href="#">Perú</a></li>
+                <li>Agregar lista de países con query</li>
             </ul>
         </div>
     </main>

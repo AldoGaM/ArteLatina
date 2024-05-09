@@ -27,13 +27,16 @@
         $stmt_tipo->execute(["%".$busqueda."%"]);
         $resultados_tipo = $stmt_tipo->fetchAll(PDO::FETCH_ASSOC);
 
-        $query_obra = "SELECT * FROM tipo_arte WHERE tipo LIKE ?;";
+        $query_obra = "SELECT * FROM obra WHERE nombre_obra LIKE ?;";
         $stmt_obra = $pdo->prepare($query_obra);
         $stmt_obra->execute(["%".$busqueda."%"]);
         $resultados_obra = $stmt_obra->fetchAll(PDO::FETCH_ASSOC);
 
         $pdo = null;
-        $stmt = null;
+        $stmt_artist = null;
+        $stmt_pais = null;
+        $stmt_tipo = null;
+        $stmt_obra = null;
 
     }catch(PDOException $e){
         die("Query failed: " . $e->getMessage());
@@ -64,7 +67,7 @@
             <ul id="barra-principal">
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#">Compra</a></li>
-                <li><a href="#">Artistas</a></li>
+                <li><a href="artista.php">Artistas</a></li>
                 <li><a href="./contacto.php">Contacto</a></li>
             </ul>
         </nav>
@@ -72,32 +75,45 @@
     <main>
         <div id="principal">
             <h3>Resultados</h3>
-
             <?php
-                if(empty($resultados_artist) && empty($resultados_pais) && empty($resultados_tipo)){
-                    echo $inicio_div = "<div class='results'>";
+                # Si no hay resultados que coincidan
+                if(empty($resultados_artist) && empty($resultados_pais) && empty($resultados_tipo) && empty($resultados_obra)){
+                    echo "<div class='results'>";
                     echo "<p>No hubo resultados</p>";
-                    echo $fin_div = "</div>";
+                    echo "</div>";
                 }else{
+                    # Lista de artistas
                     foreach($resultados_artist as $elem){
-                        echo $inicio_div;
-                        echo htmlspecialchars($elem["nombre"]) . "<br>";
-                        echo $fin_div;
+                        echo "<a href='artista.php?artista=" . $elem["nombre"] . "'>";
+                            echo "<div class='results'>";
+                                echo "<h2>Artista: " . htmlspecialchars($elem["nombre"]) . "</h2>";
+                                echo "<p>" . htmlspecialchars($elem["descripcion"]) . "</p>";
+                            echo "</div>";
+                        echo "</a>";
                     }
+                    # Lista de países
                     foreach($resultados_pais as $elem){
-                        echo $inicio_div;
-                        echo htmlspecialchars($elem["nombre_pais"]) . "<br>";
-                        echo $fin_div;
+                        echo "<a href='pais.php?pais=" . $elem["nombre_pais"] . "'>";
+                            echo "<div class='results'>";
+                                echo "<h2>País: " . htmlspecialchars($elem["nombre_pais"]) . "</h2>";
+                            echo "</div>";
+                        echo "</a>";
                     }
+                    # Lista de tipos de arte
                     foreach($resultados_tipo as $elem){
-                        echo $inicio_div;
-                        echo htmlspecialchars($elem["tipo"]) . "<br>";
-                        echo $fin_div;
+                        echo "<a href='tipo.php?tipo=" . $elem["tipo"] . "'>";
+                            echo "<div class='results'>";
+                                echo "<h2>Rama del arte: " . htmlspecialchars($elem["tipo"]) . "</h2>";
+                            echo "</div>";
+                        echo "</a>";
                     }
+                    # Lista de obras
                     foreach($resultados_obra as $elem){
-                        echo $inicio_div;
-                        echo htmlspecialchars($elem["nombre_obra"]) . "<br>";
-                        echo $fin_div;
+                        echo "<a href='obra.php?obra=" . $elem["nombre_obra"] . "'>";
+                            echo "<div class='results'>";
+                                echo "<h2>Obra: " . htmlspecialchars($elem["nombre_obra"]) . "</h2>";
+                            echo "</div>";
+                        echo "</a>";
                     }
                 }
             ?>
@@ -106,15 +122,13 @@
         <div id="sidebar">
             <p>Te invitamos a conocer un poco del arte de algunas artistas latinoamericanas</p>
             <ul>
-                <li><a href="#">Arquitectura</a></li>
-                <li><a href="#">Cine</a></li>
-                <li><a href="#">Danza</a></li>
-                <li><a href="#">Escultura</a></li>
-                <li><a href="#">Literatura</a></li>
-                <li><a href="#">Muralismo</a></li>
-                <li><a href="#">Música</a></li>
-                <li><a href="#">Pintura</a></li>
-                <li><a href="#">Teatro</a></li>
+                <li><a href="tipo.php?tipo=arquitectura">Arquitectura</a></li>
+                <li><a href="tipo.php?tipo=cine">Cine</a></li>
+                <li><a href="tipo.php?tipo=danza">Danza</a></li>
+                <li><a href="tipo.php?tipo=escultura">Escultura</a></li>
+                <li><a href="tipo.php?tipo=literatura">Literatura</a></li>
+                <li><a href="tipo.php?tipo=musica">Música</a></li>
+                <li><a href="tipo.php?tipo=pintura">Pintura</a></li>
             </ul>
         </div>
     </main>
