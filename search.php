@@ -1,4 +1,5 @@
 <?php
+    require_once 'config.php';
     # Control de entrada sin el post
     if($_SERVER["REQUEST_METHOD"] != "GET"){
         header('Location: index.php');

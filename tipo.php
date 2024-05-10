@@ -1,4 +1,6 @@
 <?php
+
+    require_once 'config.php';
     try{
         require_once 'includes/dbh-inc.php';
         $query = "SELECT * FROM tipo_arte";

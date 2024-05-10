@@ -54,6 +54,13 @@
         }
 
         require_once 'dbh-inc.php';
+
+        $opciones = [
+            'cost' => 12
+        ];
+
+        $hashedPwd = password_hash($pwd, PASSWORD_BCRYPT, $opciones);
+
         $query = 'INSERT INTO usuario (nombre_usr, nombre, apellido, fecha_nac, password, passphrase, pass_ans) VALUES (?,?,?,?,?,?,?);';
         
         $stmt = $pdo->prepare($query);
