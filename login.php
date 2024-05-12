@@ -1,5 +1,6 @@
 <?php
     require_once 'includes/session-config-inc.php';
+    require_once 'includes/login_view-inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -39,7 +40,7 @@
     <main>
         <div id="principal">
             <h2>Iniciar sesión</h2>
-            <form action="./includes/login-inc.php" method="post">
+            <form action="includes/loginhandler-inc.php" method="post">
                 <label for="usrname">Nombre de usuario: </label>
                 <input type="text" name="usrname"><br>
                 <label for="pwd">Contraseña: </label>
@@ -47,6 +48,9 @@
                 <input type="submit" value="Iniciar sesión">
             </form>
             <p>También puedes <a href="registro.php">registrarte</a></p>
+            <?php
+                comprobarErroresLogin();
+            ?>
         </div>
         <div id="sidebar">
             <p>Te invitamos a conocer un poco del arte de algunas artistas latinoamericanas</p>

@@ -12,16 +12,38 @@
 
     session_start();
     echo session_id();
-    if (!isset($_SESSION["last_regeneration"])){
-        regenSessionId();
+    if (!isset($_SESSION["id_usr"])){
+        if (!isset($_SESSION["last_regeneration"])){
+            regenSessionIdLoggedIn();
+        }else{
+            $interval = 30*60;
+            if(time() - $_SESSION["last_regeneration"] > $interval){
+                regenSessionIdLoggedIn();
+            }
+        }
     }else{
-        $interval = 30*60;
-        if(time() - $_SESSION["last_regeneration"] > $interval){
+        if (!isset($_SESSION["last_regeneration"])){
             regenSessionId();
+        }else{
+            $interval = 30*60;
+            if(time() - $_SESSION["last_regeneration"] > $interval){
+                regenSessionId();
+            }
         }
     }
 
     function regenSessionId(){
-        session_regenerate_id();
+        session_regenerate_id(true);
+        $_SESSION["last_regeneration"] = time();
+    }
+    function regenSessionIdLoggedIn(){
+        session_regenerate_id(true);
+        
+        $nuevaSesionId = session_create_id();
+        $usr_id = $_SESSION["id_usr"];
+        
+        $sesionId = $nuevaSesionId . "_" . $usr_id;
+        
+        session_id($sesionId);
         $_SESSION["last_regeneration"] = time();
     }

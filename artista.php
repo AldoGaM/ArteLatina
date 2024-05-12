@@ -53,10 +53,18 @@
             <div id="logo"><a href="./index.php"><img src="assets/images/logo.png" alt="Logo"></a></div>
             <h1>Arte Latina</h1>
             <div id="usuario">
+                <?php
+                    if (isset($_SESSION["id_usr"])){
+                        echo "<h3>" . $_SESSION["fname_usr"] . "</h3>";
+                        echo "<h4><a href='includes/logout.php'>" . "Cerrar sesión" . "</a></h4>";
+                    }else{
+                ?>
                 <a href="login.php">
-                    <img src="#" alt="Foto de usuario">
                     <h3>Iniciar sesión</h3>
                 </a>
+                <?php
+                    }
+                ?>
             </div>
         </div>
         <nav>
