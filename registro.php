@@ -1,5 +1,6 @@
 <?php
-    require_once 'config.php';
+    require_once 'includes/session-config-inc.php';
+    require_once 'includes/registro_view-inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -44,8 +45,8 @@
             <form action="./includes/registrohandler-inc.php" method="post" id="registro">
                 <label for="usrname">Nombre de usuario (obligatorio): </label>
                 <input type="text"name="usrname"><br>
-                <label for="mail">E-mail (obligatorio): </label>
-                <input type="email" name="mail"><br>
+                <label for="email">E-mail (obligatorio): </label>
+                <input type="email" name="email"><br>
                 <label for="pwd">Contraseña (obligatorio): </label>
                 <input type="password" name="pwd"><br>
                 <label for="rptpwd">Repetir contraseña (obligatorio): </label>
@@ -63,6 +64,9 @@
                 <input type="password" name="pass_ans"><br>
                 <input type="submit" value="Registrarse">
             </form>
+            <?php
+                comprobarErroresRegistro();
+            ?>
         </div>
         <div id="sidebar">
             <p>Te invitamos a conocer un poco del arte de algunas artistas latinoamericanas</p>
@@ -74,7 +78,7 @@
                 <li><a href="tipo.php?tipo=literatura">Literatura</a></li>
                 <li><a href="tipo.php?tipo=musica">Música</a></li>
                 <li><a href="tipo.php?tipo=pintura">Pintura</a></li>
-            </ul>
+            </ul>echo "<p><a href='probar_cookie.php> Ir </a></p>";
         </div>
     </main>
     <footer>

@@ -134,3 +134,7 @@ footer {
     display: flex;
     flex-direction: column;
 }
+.error{
+    color: darkred;
+    size: 20px;
+}

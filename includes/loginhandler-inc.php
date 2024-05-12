@@ -1,4 +1,7 @@
 <?php
+
+    require_once 'includes/session-config-inc.php';
+
     if($_SERVER["REQUEST_METHOD"] != "POST"){
         header("Location: ../index.php");
     }

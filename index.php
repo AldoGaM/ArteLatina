@@ -1,5 +1,5 @@
 <?php
-    require_once 'config.php';
+    require_once 'includes/session-config-inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -40,6 +40,11 @@
     </header>
     <main>
         <div id="principal">
+            <?php
+                if($_GET["signup"]=="success"){
+                    echo "<h1>Usuario registrado!</h1>";
+                }
+            ?>
             <h2>Título</h2>
             <div class="intro">
                 <h3>Foto 1</h3>

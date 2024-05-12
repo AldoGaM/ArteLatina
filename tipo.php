@@ -1,6 +1,6 @@
 <?php
-
-    require_once 'config.php';
+    require_once 'includes/session-config-inc.php';
+    
     try{
         require_once 'includes/dbh-inc.php';
         $query = "SELECT * FROM tipo_arte";
