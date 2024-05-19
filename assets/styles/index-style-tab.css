@@ -1,4 +1,5 @@
 .intro {
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
@@ -28,4 +29,12 @@ footer {
 
 #nosotros ul{
     justify-content: space-around;
+}
+
+.bibliografia {
+    width: 25vw;
+}
+
+.bibliografia img {
+    width: 25vw;
 }

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assets/styles/index-style-mobile.css">
     <link rel="stylesheet" href="assets/styles/index-style-tab.css" media="screen and (min-width: 600px)">
     <link rel="stylesheet" href="assets/styles/index-style-desktop.css" media="screen and (min-width: 820px)">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -53,12 +54,18 @@
                     echo "<h1>Usuario registrado!</h1>";
                 }
             ?>
-            <h2>Título</h2>
+            <h2>¡Bienvenidos!</h2>
             <div class="intro">
-                <h3>Foto 1</h3>
-                <h3>Foto 2</h3>
+                <div class="bibliografia">
+                    <img src="assets/images/obra/Lina Bo Bardi-CasaCor.jpg" class="foto" alt="CasaCor de Lina Bo Bardi">
+                    <p>CasaCor por Lina Bo Bardi.<br></p>
+                </div>
+                <div class="bibliografia">
+                    <img src="assets/images/obra/Carmen Beuchat-Quasar.jpg" class="foto" alt="Quasar de Carmen Beuchat">
+                    <p>Quasar de Carmen Beuchat.<br></p>
+                </div>
             </div>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde tempora nostrum nobis reprehenderit deserunt pariatur nihil dolorum debitis expedita, tenetur placeat! Praesentium enim hic earum libero veritatis totam molestias voluptate!</p>
+            <p>¡Bienvenidos a Arte Latina! Un sitio web que busca dar a conocer más artistas latinoamericanas</p>
         </div>
         <div id="sidebar">
             <p>Te invitamos a conocer un poco del arte de algunas artistas latinoamericanas</p>

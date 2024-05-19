@@ -22,3 +22,6 @@ nav {
 footer {
     padding: 0;
 }
+.intro {
+    flex-direction: row;
+}

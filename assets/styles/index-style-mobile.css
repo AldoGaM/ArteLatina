@@ -231,3 +231,11 @@ footer {
     height: 40px;
     width: 40px;
 }
+
+#contacto {
+    padding: 1rem;
+}
+
+#contacto ul {
+    list-style: none;
+}

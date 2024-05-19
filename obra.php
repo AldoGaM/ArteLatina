@@ -52,6 +52,7 @@
     <link rel="stylesheet" href="assets/styles/index-style-mobile.css">
     <link rel="stylesheet" href="assets/styles/index-style-tab.css" media="screen and (min-width: 600px)">
     <link rel="stylesheet" href="assets/styles/index-style-desktop.css" media="screen and (min-width: 820px)">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assets/styles/index-style-mobile.css">
     <link rel="stylesheet" href="assets/styles/index-style-tab.css" media="screen and (min-width: 600px)">
     <link rel="stylesheet" href="assets/styles/index-style-desktop.css" media="screen and (min-width: 820px)">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -52,14 +53,23 @@
             <div class="intro">
                 <div class="bibliografia">
                     <h3>Foto 1</h3>
-                    <h3>Tú</h3>
+                    <h3>Aldo García Moreno</h3>
                 </div>
                 <div class="bibliografia">
                     <h3>Foto 2</h3>
-                    <h3>Yo</h3>
+                    <h3>Daniela Rogríguez Flores</h3>
                 </div>
             </div>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde tempora nostrum nobis reprehenderit deserunt pariatur nihil dolorum debitis expedita, tenetur placeat! Praesentium enim hic earum libero veritatis totam molestias voluptate!</p>
+            <div id="contacto">
+                <h2>Contacto</h2>
+                <p>¿Tienes alguna pregunta o comentario? No dudes en ponerte en contacto con nosotros:</p>
+                <ul>
+                    <li><strong>Correo Electrónico:</strong> contacto@artelatina.com</li>
+                    <li><strong>Teléfono:</strong> +1 (555) 123-4567</li>
+                    <li><strong>Horario de Atención:</strong> Lunes a Viernes, 9:00 a.m. - 5:00 p.m.</li>
+                    <li><strong>Dirección Postal:</strong> Calle Principal #123, Ciudad, País</li>
+                </ul>
+            </div>
         </div>
         <div id="sidebar">
             <p>Te invitamos a conocer un poco del arte de algunas artistas latinoamericanas</p>
