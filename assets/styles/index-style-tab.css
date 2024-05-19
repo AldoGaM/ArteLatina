@@ -4,8 +4,9 @@
 }
 
 #principal {
-    border: 1px solid black;
-    border-radius: 5%;
+    border: 1px solid var(--secundario);
+    border-radius: 5px;
+    background: var(--footer-bg);
 }
 
 footer {

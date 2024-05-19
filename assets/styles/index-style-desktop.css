@@ -8,4 +8,17 @@ main{
 
 #sidebar {
     width: 30%;
+    padding: 0.5rem;
+}
+#inicio {
+    height: 15vh;
+}
+.search-option {
+    height: 10vh;
+}
+nav {
+    padding: none;
+}
+footer {
+    padding: 0;
 }
