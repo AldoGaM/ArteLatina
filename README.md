@@ -12,7 +12,7 @@ Debe haber un usuario en el servidor de mysql con los datos:
 - Username: dbconnection
 - Password: 123Acatlan
 
-Si la conexión requiere un puerto en específico, indicarlo en el host.
+Si la conexión requiere un puerto en específico, indicarlo en el host así como en el archivo "includes/dbh-inc.php" en la variable "$host".
 
 Se debe correr el script "db-creation.sql" antes de comenzar, y la conexión se debe de hacer desde "localhost", no de la IP local.
 
