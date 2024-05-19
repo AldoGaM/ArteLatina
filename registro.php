@@ -35,7 +35,7 @@
         <nav>
             <ul id="barra-principal">
                 <li><a href="./index.php">Inicio</a></li>
-                <li><a href="#">Compra</a></li>
+                <li><a href="obra.php">Obras</a></li>
                 <li><a href="artista.php">Artistas</a></li>
                 <li><a href="#">Contacto</a></li>
             </ul>
@@ -86,22 +86,22 @@
                 <li><a href="tipo.php?tipo=literatura">Literatura</a></li>
                 <li><a href="tipo.php?tipo=musica">Música</a></li>
                 <li><a href="tipo.php?tipo=pintura">Pintura</a></li>
-            </ul>echo "<p><a href='probar_cookie.php> Ir </a></p>";
+            </ul>
         </div>
     </main>
     <footer>
         <div id="redes-sociales">
             <ul>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">Tik tok</a></li>
+                <li><a href="#"><img src="assets/images/facebook.png" alt="Facebook" class="icon"></a></li>
+                <li><a href="#"><img src="assets/images/instagram.png" alt="Instagram" class="icon"></a></li>
+                <li><a href="#"><img src="assets/images/tiktok.png" alt="Tik tok" class="icon"></a></li>
+                <li><a href="#"><img src="assets/images/twitter.png" alt="Twitter/X" class="icon"></a></li>
             </ul>
         </div>
         <div id="nosotros">
             <ul>
-                <li><a href="#">FES Acatlán</a></li>
-                <li><a href="#">MAC</a></li>
+                <li><a href="https://www.acatlan.unam.mx/">FES Acatlán</a></li>
+                <li><a href="https://mac.acatlan.unam.mx/">MAC</a></li>
             </ul>
         </div>
     </footer>
