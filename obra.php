@@ -2,29 +2,29 @@
     require_once 'includes/session-config-inc.php';
     try{
         require_once 'includes/dbh-inc.php';
-        $query = "SELECT * FROM artista";
+        $query = "SELECT * FROM obra";
         # Checar si se quiere uno en específico o la lista de todas
-        if(!empty($_GET["artista"])){
-            $artista = $_GET["artista"];
-            $query = $query . " WHERE nombre = ?;";
+        if(!empty($_GET["obra"])){
+            $obra = $_GET["obra"];
+            $query = $query . " WHERE nombre_obra = ?;";
             $stmt = $pdo->prepare($query);
-            $stmt->execute([$artista]);
+            $stmt->execute([$obra]);
             $respuesta = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            $query_artista = "SELECT * FROM artista WHERE id_artista = ?;";
+            $stmt_artista = $pdo->prepare($query_artista);
+            $stmt_artista->execute([$respuesta["id_artista"]]);
+            $artista = $stmt_artista->fetch(PDO::FETCH_ASSOC);
 
             $query_pais = "SELECT nombre_pais FROM pais WHERE id_pais = ?";
             $stmt_pais = $pdo->prepare($query_pais);
-            $stmt_pais->execute([$respuesta["id_pais"]]);
+            $stmt_pais->execute([$artista["id_pais"]]);
             $pais = $stmt_pais->fetch(PDO::FETCH_ASSOC);
 
             $query_arte = "SELECT tipo FROM tipo_arte WHERE id_tipo_arte = ?;";
             $stmt_arte = $pdo->prepare($query_arte);
             $stmt_arte->execute([$respuesta["id_tipo_arte"]]);
             $tipo = $stmt_arte->fetch(PDO::FETCH_ASSOC);
-
-            $query_obra = "SELECT * FROM obra WHERE id_artista = ?;";
-            $stmt_obra = $pdo->prepare($query_obra);
-            $stmt_obra->execute([$respuesta["id_artista"]]);
-            $obras = $stmt_obra->fetchAll(PDO::FETCH_ASSOC);
         }else {
             $query = $query . ";";
             $stmt = $pdo->prepare($query);
@@ -34,6 +34,7 @@
         
         $pdo = null;
         $stmt = null;
+        $stmt_artista = null;
         $stmt_pais = null;
         $stmt_arte = null;
 
@@ -90,39 +91,28 @@
     <main>
         <div id="principal">
             <?php
-                if(empty($_GET["artista"])){
-                    echo "<h2>Lista de artistas:</h2>";
+                if(empty($_GET["obra"])){
+                    echo "<h2>Lista de obras:</h2>";
                     foreach($resultados as $elem){
-                        echo "<a href='artista.php?artista=" . $elem["nombre"] . "'>";
+                        echo "<a href='obra.php?obra=" . $elem["nombre_obra"] . "'>";
                             echo "<div class='results'>";
-                                echo "<h2>Artista: " . htmlspecialchars($elem["nombre"]) . "</h2>";
+                                echo "<h2>Obra: " . htmlspecialchars($elem["nombre_obra"]) . "</h2>";
                                 echo "<p>" . htmlspecialchars($elem["descripcion"]) . "</p>";
                             echo "</div>";
                         echo "</a>";
                     }
                 }else{
                     echo "<div class='bibliografia'>";
-                        $fecha = $respuesta["fecha_nac"];
-                        echo "<img src='" . "#" . "' alt='" . $respuesta["nombre"] . "'>";
-                        echo "<h2>" . $respuesta["nombre"] . "</h2>";
+                        echo "<img src='" . "#" . "' alt='" . $respuesta["nombre_obra"] . "'>";
+                        echo "<h2>" . $respuesta["nombre_obra"] . "</h2>";
                         echo "<p>" . $respuesta["descripcion"] . "</p>";
-                        echo "<p>Nacida en " . $pais["nombre_pais"] . "</p>";
-                        if(!empty($fecha)){
-                            echo "<p>El día: " . substr($fecha,8,2);
-                            echo " de " . substr($fecha, 5, 2);
-                            echo " de " . substr($fecha, 0,4) .  "</p>";
+                        echo "<p>Hecha en " . $pais["nombre_pais"];
+                        if(!empty($respuesta["anio"])){
+                            echo " en " . $respuesta["anio"] . ".</p>";
+                        }else{
+                            echo ".</p>";
                         }
-                        echo "<p>Se dedica a: " . $tipo["tipo"] . "</p>";
                     echo "</div>";
-                    echo "<h3>Sus obras:</h3>";
-                    foreach($obras as $elem){
-                        echo "<a href='obra.php?obra=" . $elem["nombre_obra"] . "'>";
-                            echo "<div class='results'>";
-                                echo "<h3>Obra: " . htmlspecialchars($elem["nombre_obra"]) . "</h3>";
-                                echo "<p>" . htmlspecialchars(substr($elem["descripcion"],0,100)) . "...</p>";
-                            echo "</div>";
-                        echo "</a>";
-                    }
                 }
             ?>
         </div>

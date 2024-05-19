@@ -11,7 +11,6 @@
     ]);
 
     session_start();
-    echo session_id();
     if (!isset($_SESSION["id_usr"])){
         if (!isset($_SESSION["last_regeneration"])){
             regenSessionIdLoggedIn();
