@@ -103,7 +103,7 @@
                 }else{
                     echo "<div class='bibliografia'>";
                         $fecha = $respuesta["fecha_nac"];
-                        echo "<img src='" . "#" . "' alt='" . $respuesta["nombre"] . "'>";
+                        echo "<img src='assets/images/artista/" . $respuesta["nombre"] . ".jpg' class='foto' alt='" . $respuesta["nombre"] . "'>";
                         echo "<h2>" . $respuesta["nombre"] . "</h2>";
                         echo "<p>" . $respuesta["descripcion"] . "</p>";
                         echo "<p>Nacida en " . $pais["nombre_pais"] . "</p>";

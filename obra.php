@@ -103,7 +103,7 @@
                     }
                 }else{
                     echo "<div class='bibliografia'>";
-                        echo "<img src='" . "#" . "' alt='" . $respuesta["nombre_obra"] . "'>";
+                        echo "<img src='assets/images/obra/" . $artista["nombre"] . "-" . $respuesta["nombre_obra"] . ".jpg' class='foto' alt='" . $respuesta["nombre_obra"] . "'>";
                         echo "<h2>" . $respuesta["nombre_obra"] . "</h2>";
                         echo "<p>" . $respuesta["descripcion"] . "</p>";
                         echo "<p>Hecha en " . $pais["nombre_pais"];
